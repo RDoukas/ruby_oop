@@ -43,23 +43,39 @@ p mouse
 class Person < Animal
   def initialize(input_options)
     super 
-    @type = "Person"
+    @type = "person"
     @age = input_options[:age]
     @gender = input_options[:gender]
+    @name =input_options[:name]
   end 
 
+  # def eat(food)
+  #   if food == "person"
+  #     food = "nothing"
+  #     puts "They are eating #{food}."
+  #   end
+  # end 
+
   def eat(food)
+    response = ""
     if food == "person"
-      food = "nothing"
-      puts "They are eating #{food}."
+      response = "Sir! I am NOT a cannibal!"
+    else
+      response ="Yum! I am eating #{food}!"
     end
+    puts response
+  end
+
+  def greet 
+    puts "Hi, I'm #{@name}. I'm a #{@type}, and #{@age} years old."
   end 
 end
 
 
-person1 = Person.new(type: "person", age: 10, gender:"female", state: "awake")
+person1 = Person.new(type: "person", age: 10, gender:"female", state: "awake", name: "Becca Doukas")
 
 person1.eat("cheese")
-puts person1.eat("person")
-
+person1.greet
 p person1
+
+
